@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <array name="filter_options">
+        <item>Tất cả</item>
+        <item>Giá dưới 60,000</item>
+        <item>Giá từ 60,000 đến 100,000</item>
+        <item>Giá trên 100,000</item>
+    </array>
+    <array name="sort_options">
+        <item>Mặc định</item>
+        <item>Giá tăng dần</item>
+        <item>Giá giảm dần</item>
+    </array>
+</resources>
