@@ -1,0 +1,520 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F5F5F5"
+    android:isScrollContainer="true"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <!-- Breadcrumb Navigation -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingBottom="16dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="HOME"
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <View
+                android:layout_width="8dp"
+                android:layout_height="8dp"
+                android:layout_marginHorizontal="8dp"
+                android:background="@drawable/circle_dot" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="ĐĂNG TIN"
+                android:textSize="14sp"
+                android:textColor="#000000" />
+        </LinearLayout>
+
+        <!-- Main Content -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <!-- Tiêu đề chính -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Đăng Tin"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Hãy đọc những câu hỏi sau và hoàn thành biểu mẫu bên dưới"
+                android:textSize="20sp"
+                android:textColor="@android:color/black" />
+
+            <!-- Phần thông tin người đăng -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Thông tin của bạn"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <!-- Số điện thoại -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Số điện thoại"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/etPhoneNumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:inputType="phone"
+                android:imeOptions="actionDone" />
+
+            <!-- Địa chỉ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Địa chỉ nhà của bạn"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <EditText
+                android:id="@+id/etAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Thông tin liên hệ -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Nếu bạn có bất kì câu hỏi liên quan nào hãy liên hệ với AD ở số điện thoại ...."
+                android:textSize="14sp"
+                android:textColor="#666666" />
+
+            <!-- Ảnh chú chó -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Ảnh cún cưng của bạn"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <ImageView
+                android:id="@+id/ivDogImage"
+                android:layout_width="match_parent"
+                android:layout_height="200dp"
+                android:layout_marginTop="8dp"
+                android:scaleType="centerCrop"
+                android:contentDescription="Ảnh chú chó" />
+
+            <Button
+                android:id="@+id/btnUploadImage"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="8dp"
+                android:text="Chọn ảnh" />
+
+            <!-- Phần thông tin chú chó -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Thông tin chú chó"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:textColor="@android:color/black" />
+
+            <!-- Tên và tuổi chú chó -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tên và tuổi của chú chó là gì?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Giống chó -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chú chó thuộc giống nào?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etLine"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Tính cách -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tính cách của chú chó như thế nào?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etCharacter"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Tình trạng sức khỏe -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Tình trạng sức khỏe của chú chó như thế nào?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <RadioGroup
+                android:id="@+id/rgHealth"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <RadioButton
+                    android:id="@+id/rbHealth1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại 1 (Sức khỏe tốt và không bệnh tật)"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbHealth2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại 2 (Mức độ sức khỏe tốt nhưng có một số hạn chế nhỏ)"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbHealth3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại 3 (Mức độ sức khỏe trung bình, có một số hạn chế nhất định)"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbHealth4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại 4 (Mức độ sức khỏe dưới trung bình, có nhiều hạn chế)"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbHealth5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Loại 5 (Mức độ sức khỏe kém)"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvSelectedHealth"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Tình trạng đã chọn: "
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <!-- Tiền sử bệnh tật -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Có tiền sử bệnh tật không?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etMedical"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Tiêm chủng -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chú chó có tiêm chủng đầy đủ chưa? (Ghi rõ những mũi đã tiêm)"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <RadioGroup
+                android:id="@+id/rgVaccination"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbVaccinatedYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="Có"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbVaccinatedNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Không"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <EditText
+                android:id="@+id/etVaccinationDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Triệt sản -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chú chó đã được triệt sản chưa?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <RadioGroup
+                android:id="@+id/rgSterilization"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbSterilizedYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="Đã triệt sản"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbSterilizedNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Chưa triệt sản"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <!-- Yêu cầu chăm sóc -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Yêu cầu chăm sóc"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etTakeCare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:minLines="3"
+                android:imeOptions="actionDone" />
+
+            <!-- Yêu cầu chăm sóc đặc biệt -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Yêu cầu chăm sóc đặc biệt"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etSpecialTakeCare"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:inputType="textMultiLine"
+                android:lines="3"
+                android:minLines="3"
+                android:imeOptions="actionDone" />
+
+            <!-- Thói quen, sở thích -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Những thói quen hay sở thích đặc biệt nào của chú chó mà người nuôi hộ cần lưu ý không?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <EditText
+                android:id="@+id/etHabit"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:padding="8dp"
+                android:background="@drawable/rounded_border"
+                android:textSize="16sp"
+                android:imeOptions="actionDone" />
+
+            <!-- Sống cùng trẻ em hoặc vật nuôi -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chú chó có quen với việc sống cùng trẻ em hoặc các vật nuôi khác không?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <RadioGroup
+                android:id="@+id/rgLiveTogether"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbLiveTogetherYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="Có"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbLiveTogetherNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Không"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvLiveTogetherStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Trạng thái sống cùng trẻ em hoặc vật nuôi: "
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <!-- Huấn luyện cơ bản -->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="Chú chó có quen được huấn luyện cơ bản (ngồi, đứng, nghe lệnh) không?"
+                android:textSize="16sp"
+                android:textColor="#666666" />
+
+            <RadioGroup
+                android:id="@+id/rgTraining"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/rbTrainingYes"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="32dp"
+                    android:text="Có"
+                    android:textSize="14sp" />
+
+                <RadioButton
+                    android:id="@+id/rbTrainingNo"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Không"
+                    android:textSize="14sp" />
+            </RadioGroup>
+
+            <TextView
+                android:id="@+id/tvTrainingStatus"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="Trạng thái huấn luyện: "
+                android:textSize="14sp"
+                android:textColor="#000000" />
+
+            <!-- Nút đăng bài -->
+            <Button
+                android:id="@+id/btnSubmitPost"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                android:backgroundTint="#4B9CD3"
+                android:text="Tải thông tin lên"
+                android:textColor="@android:color/white" />
+        </LinearLayout>
+    </LinearLayout>
+</ScrollView>

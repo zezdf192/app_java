@@ -13,6 +13,7 @@
         android:layout_margin="16dp"
         app:queryHint="Tìm kiếm pet..."
         android:background="@drawable/search_background"
+        android:theme="@style/SearchViewStyle"
         android:elevation="4dp" />
 
     <androidx.recyclerview.widget.RecyclerView

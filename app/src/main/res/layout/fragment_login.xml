@@ -1,64 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="16dp"
-    android:gravity="center"
-    android:background="#F5F5F5">
+    android:background="@drawable/gradient_background">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:textSize="28sp"
-        android:textStyle="bold"
-        android:textColor="#333333"
-        android:layout_marginBottom="32dp" />
+    <!-- Ảnh minh họa toàn màn hình -->
+    <ImageView
+        android:id="@+id/ivLogo"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:src="@drawable/login_img"
+        android:contentDescription="Ảnh đăng nhập"
+        android:scaleType="fitCenter" />
 
-    <EditText
-        android:id="@+id/etEmail"
+    <!-- Nút Đăng nhập bằng Google gần phía dưới -->
+    <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Email"
-        android:inputType="textEmailAddress"
-        android:padding="12dp"
-        android:background="@drawable/edittext_background"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="16dp"
+        android:layout_gravity="bottom"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="4dp"
 
-    <EditText
-        android:id="@+id/etPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Mật khẩu"
-        android:inputType="textPassword"
-        android:padding="12dp"
-        android:background="@drawable/edittext_background"
-        android:layout_marginBottom="16dp" />
+        android:background="@drawable/card_border">
 
-    <Button
-        android:id="@+id/btnLogin"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập"
-        android:backgroundTint="#FF5722"
-        android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp" />
+        <Button
+            android:id="@+id/btnGoogleSignIn"
+            android:layout_width="match_parent"
+            android:layout_height="60dp"
+            android:text="Đăng nhập bằng Google"
+            android:textSize="16sp"
+            android:textColor="#FFFFFF"
 
-    <Button
-        android:id="@+id/btnGoogleSignIn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Đăng nhập bằng Google"
-        android:backgroundTint="#4285F4"
-        android:textColor="#FFFFFF" />
+            android:drawableStart="@drawable/google"
+            android:drawablePadding="8dp"
+            android:padding="16dp" />
+    </androidx.cardview.widget.CardView>
 
-    <TextView
-        android:id="@+id/tvError"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textColor="#FF0000"
-        android:textSize="16sp"
-        android:visibility="gone"
-        android:layout_marginTop="16dp" />
 </LinearLayout>

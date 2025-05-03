@@ -13,6 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 public class ApiService {
     private static final String BASE_URL = "http://192.168.1.3:5000";
@@ -88,5 +89,144 @@ public class ApiService {
             errorListener.onErrorResponse(error);
         });
         requestQueue.add(request);
+    }
+
+    public void createPost(Map<String, Object> data,
+                           Response.Listener<JSONObject> successListener,
+                           Response.ErrorListener errorListener) {
+        String url = BASE_URL + "/api/user/post-dog";
+        try {
+            // Chuyển Map thành JSONObject một cách an toàn
+            JSONObject requestBody = convertMapToJson(data);
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, requestBody,
+                    response -> {
+                        // Trả về phản hồi từ server
+                        successListener.onResponse(response);
+                    }, error -> {
+                Log.e("API_ERROR", "Error creating post: " + error.toString());
+                errorListener.onErrorResponse(error);
+            });
+            requestQueue.add(request);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            errorListener.onErrorResponse(new VolleyError(e));
+        }
+    }
+
+    // Phương thức tiện ích để chuyển Map thành JSONObject một cách an toàn
+    private JSONObject convertMapToJson(Map<String, Object> map) throws JSONException {
+        JSONObject jsonObject = new JSONObject();
+        for (Map.Entry<String, Object> entry : map.entrySet()) {
+            String key = entry.getKey();
+            Object value = entry.getValue();
+
+            if (value == null) {
+                jsonObject.put(key, JSONObject.NULL);
+            } else if (value instanceof Map) {
+                // Nếu giá trị là một Map (như dataDog), chuyển đệ quy thành JSONObject
+                jsonObject.put(key, convertMapToJson((Map<String, Object>) value));
+            } else {
+                jsonObject.put(key, value);
+            }
+        }
+        return jsonObject;
+    }
+
+    public void getUserPosts(String userId, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+        String url = BASE_URL + "/api/user/dog-adop-email/" + userId;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                null,
+                onSuccess,
+                onError
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void getUserAllPosts(Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+        String url = BASE_URL + "/api/user/all-adop";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                null,
+                onSuccess,
+                onError
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void saveCart(JSONObject requestBody, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+        String url = BASE_URL + "/api/cart/save";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                requestBody,
+                onSuccess,
+                onError
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void getCart(String email, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+        String url = BASE_URL + "/api/cart/get/" + email;
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                null,
+                onSuccess,
+                onError
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void removeCart(JSONObject requestBody, Response.Listener<JSONObject> onSuccess, Response.ErrorListener onError) {
+        String url = BASE_URL + "/api/cart/update";
+        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(
+                Request.Method.POST,
+                url,
+                requestBody,
+                onSuccess,
+                onError
+        );
+        requestQueue.add(jsonObjectRequest);
+    }
+
+    public void updateProfile(Map<String, Object> data, Response.Listener<JSONObject> successListener, Response.ErrorListener errorListener) {
+        String url = BASE_URL + "/api/user/update-profile-by-email";
+        try {
+            // Chuyển Map thành JSONObject một cách an toàn
+            JSONObject requestBody = convertMapToJson(data);
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, requestBody,
+                    response -> {
+                        // Trả về phản hồi từ server
+                        successListener.onResponse(response);
+                    }, error -> {
+                Log.e("API_ERROR", "Error updating profile: " + error.toString());
+                errorListener.onErrorResponse(error);
+            });
+            requestQueue.add(request);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            errorListener.onErrorResponse(new VolleyError(e));
+        }
+    }
+
+    public void getProfileByEmail(Map<String, Object> data, Response.Listener<JSONObject> successListener, Response.ErrorListener errorListener) {
+        String url = BASE_URL + "/api/user/profile-by-email";
+        try {
+            JSONObject requestBody = convertMapToJson(data);
+            JsonObjectRequest request = new JsonObjectRequest(Request.Method.POST, url, requestBody,
+                    response -> {
+                        successListener.onResponse(response);
+                    }, error -> {
+                Log.e("API_ERROR", "Error getting profile: " + error.toString());
+                errorListener.onErrorResponse(error);
+            });
+            requestQueue.add(request);
+        } catch (JSONException e) {
+            e.printStackTrace();
+            errorListener.onErrorResponse(new VolleyError(e));
+        }
     }
 }

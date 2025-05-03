@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">DogApp</string>
+    <string name="cloudinary_cloud_name">djfpcyyfe</string>
+    <string name="cloudinary_api_key">462886354475568</string>
+    <string name="cloudinary_api_secret">7IyZ1fMXe--ZoDhLd9hr4zlkGOQ</string>
+    <string name="cloudinary_upload_preset">cr2sv2gr</string>
 </resources>

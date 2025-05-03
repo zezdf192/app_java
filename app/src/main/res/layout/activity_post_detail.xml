@@ -1,0 +1,419 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:background="#6200EE"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
+
+    <!-- ScrollView chứa nội dung -->
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#F5F5F5"
+        android:padding="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!-- Ảnh của chó -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <ImageView
+                    android:id="@+id/ivDogImage"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:scaleType="centerCrop"
+                    android:contentDescription="Ảnh của chó" />
+
+            </androidx.cardview.widget.CardView>
+
+            <!-- Phần thông tin cơ bản -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Tiêu đề: Thông tin cơ bản -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_info_details"
+                            android:tint="#6200EE" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Thông tin cơ bản"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#6200EE" />
+
+                    </LinearLayout>
+
+                    <!-- Tên chó -->
+                    <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tên: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="12dp" />
+
+                    <!-- Dòng chó -->
+                    <TextView
+                        android:id="@+id/tvLine"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Dòng chó: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Tính cách -->
+                    <TextView
+                        android:id="@+id/tvCharacter"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tính cách: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Phần thông tin sức khỏe -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Tiêu đề: Thông tin sức khỏe -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_recent_history"
+                            android:tint="#6200EE" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Thông tin sức khỏe"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#6200EE" />
+
+                    </LinearLayout>
+
+                    <!-- Tình trạng sức khỏe -->
+                    <TextView
+                        android:id="@+id/tvHealth"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tình trạng sức khỏe: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="12dp" />
+
+                    <!-- Tình trạng y tế -->
+                    <TextView
+                        android:id="@+id/tvMedical"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Tình trạng y tế: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Đã tiêm phòng đầy đủ chưa -->
+                    <TextView
+                        android:id="@+id/tvFullVaccin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đã tiêm phòng đầy đủ: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Chi tiết tiêm phòng -->
+                    <TextView
+                        android:id="@+id/tvVaccin"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chi tiết tiêm phòng: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Đã triệt sản chưa -->
+                    <TextView
+                        android:id="@+id/tvSterilization"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đã triệt sản: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Phần thông tin chăm sóc -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Tiêu đề: Thông tin chăm sóc -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_manage"
+                            android:tint="#6200EE" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Thông tin chăm sóc"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#6200EE" />
+
+                    </LinearLayout>
+
+                    <!-- Cách chăm sóc -->
+                    <TextView
+                        android:id="@+id/tvTakeCare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Cách chăm sóc: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="12dp" />
+
+                    <!-- Chăm sóc đặc biệt -->
+                    <TextView
+                        android:id="@+id/tvSpecialTakeCare"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Chăm sóc đặc biệt: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Phần thông tin hành vi -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Tiêu đề: Thông tin hành vi -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_myplaces"
+                            android:tint="#6200EE" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Thông tin hành vi"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#6200EE" />
+
+                    </LinearLayout>
+
+                    <!-- Thói quen -->
+                    <TextView
+                        android:id="@+id/tvHabit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Thói quen: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="12dp" />
+
+                    <!-- Sống cùng trẻ em/vật nuôi -->
+                    <TextView
+                        android:id="@+id/tvLiveTogether"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Sống cùng trẻ em/vật nuôi: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Đã được huấn luyện -->
+                    <TextView
+                        android:id="@+id/tvTrain"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Đã được huấn luyện: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Phần thông tin liên hệ -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:layout_marginBottom="16dp"
+                app:cardCornerRadius="12dp"
+                app:cardElevation="4dp"
+                app:cardBackgroundColor="#FFFFFF">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical"
+                    android:padding="16dp">
+
+                    <!-- Tiêu đề: Thông tin liên hệ -->
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center_vertical">
+
+                        <ImageView
+                            android:layout_width="24dp"
+                            android:layout_height="24dp"
+                            android:src="@android:drawable/ic_menu_call"
+                            android:tint="#6200EE" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:text="Thông tin liên hệ"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            android:textColor="#6200EE" />
+
+                    </LinearLayout>
+
+                    <!-- Số điện thoại -->
+                    <TextView
+                        android:id="@+id/tvPhoneNumber"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Số điện thoại: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="12dp" />
+
+                    <!-- Địa chỉ -->
+                    <TextView
+                        android:id="@+id/tvAddress"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Địa chỉ: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                    <!-- Người đăng -->
+                    <TextView
+                        android:id="@+id/tvUser"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:text="Người đăng: "
+                        android:textSize="16sp"
+                        android:textColor="#333333"
+                        android:layout_marginTop="8dp" />
+
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

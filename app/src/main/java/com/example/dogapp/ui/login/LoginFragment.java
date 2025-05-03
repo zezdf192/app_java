@@ -2,6 +2,7 @@ package com.example.dogapp.ui.login;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -15,6 +16,7 @@ import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.dogapp.MainActivity;
 import com.example.dogapp.R;
 import com.example.dogapp.ui.home.HomeFragment;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
@@ -35,7 +37,7 @@ public class LoginFragment extends Fragment {
     private GoogleSignInClient googleSignInClient;
     private FirebaseAuth firebaseAuth;
     private RequestQueue requestQueue;
-    private ActivityResultLauncher<Intent> signInLauncher; // Thêm ActivityResultLauncher
+    private ActivityResultLauncher<Intent> signInLauncher;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -45,7 +47,7 @@ public class LoginFragment extends Fragment {
 
         // Cấu hình Google Sign-In
         GoogleSignInOptions gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
-                .requestIdToken("928946629510-kjpqb761qdgbubgh4t3qoarq266svpvu.apps.googleusercontent.com")
+                .requestIdToken("928946629510-kjpqb761qdgbubgh4t3qoarq266svpvu.apps.googleusercontent.com") // Thay bằng Web Client ID thực tế
                 .requestEmail()
                 .build();
         googleSignInClient = GoogleSignIn.getClient(requireActivity(), gso);
@@ -63,10 +65,12 @@ public class LoginFragment extends Fragment {
                         } catch (ApiException e) {
                             tvError.setText("Đăng nhập Google thất bại: " + e.getMessage());
                             tvError.setVisibility(View.VISIBLE);
+                            Log.e("LoginFragment", "Google Sign-In failed: " + e.getStatusCode() + " - " + e.getMessage());
                         }
                     } else {
-                        tvError.setText("Đăng nhập Google bị hủy");
+                        tvError.setText("Bạn đã hủy đăng nhập Google. Vui lòng thử lại.");
                         tvError.setVisibility(View.VISIBLE);
+                        Log.e("LoginFragment", "Google Sign-In canceled, resultCode: " + result.getResultCode());
                     }
                 }
         );
@@ -74,22 +78,27 @@ public class LoginFragment extends Fragment {
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_login, container, false);
+        return inflater.inflate(R.layout.fragment_login, container, false);
+    }
 
-        etEmail = view.findViewById(R.id.etEmail);
-        etPassword = view.findViewById(R.id.etPassword);
-        btnLogin = view.findViewById(R.id.btnLogin);
+    @Override
+    public void onViewCreated(View view, Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+
         btnGoogleSignIn = view.findViewById(R.id.btnGoogleSignIn);
-        tvError = view.findViewById(R.id.tvError);
+
+        // Ẩn BottomNavigationView khi ở LoginFragment
+        if (requireActivity() instanceof MainActivity) {
+            ((MainActivity) requireActivity()).toggleBottomNavigation(false);
+        }
 
         btnGoogleSignIn.setOnClickListener(v -> signInWithGoogle());
-
-        return view;
     }
 
     private void signInWithGoogle() {
         Intent signInIntent = googleSignInClient.getSignInIntent();
-        signInLauncher.launch(signInIntent); // Sử dụng ActivityResultLauncher
+        signInLauncher.launch(signInIntent);
     }
 
     private void firebaseAuthWithGoogle(GoogleSignInAccount account) {
@@ -105,6 +114,7 @@ public class LoginFragment extends Fragment {
                     } else {
                         tvError.setText("Xác thực Firebase thất bại");
                         tvError.setVisibility(View.VISIBLE);
+                        Log.e("LoginFragment", "Firebase Auth failed: " + task.getException());
                     }
                 });
     }
@@ -131,6 +141,10 @@ public class LoginFragment extends Fragment {
                             getParentFragmentManager().beginTransaction()
                                     .replace(R.id.fragmentContainer, new HomeFragment())
                                     .commit();
+                            // Hiển thị BottomNavigationView sau khi đăng nhập thành công
+                            if (requireActivity() instanceof MainActivity) {
+                                ((MainActivity) requireActivity()).toggleBottomNavigation(true);
+                            }
                         } else {
                             tvError.setText(message);
                             tvError.setVisibility(View.VISIBLE);
@@ -142,6 +156,7 @@ public class LoginFragment extends Fragment {
                 }, error -> {
             tvError.setText("Lỗi kết nối API: " + error.getMessage());
             tvError.setVisibility(View.VISIBLE);
+            Log.e("LoginFragment", "API error: " + error.getMessage());
         });
         requestQueue.add(jsonObjectRequest);
     }
